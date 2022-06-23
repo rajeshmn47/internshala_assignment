@@ -5,12 +5,13 @@ import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 
 export const Settings=()=>{
 const[open,setOpen]=useState(false)
-const initialFValues = {
+const[ok,setOk]=useState(false)
+const initialFValues=({
     id: 0,
     name: '',
     email: '',
     role: '',
-}
+})
 const[values,setValues]=useState(initialFValues)
 const[users,setUsers]=useState([])
 useEffect(()=>{
@@ -20,17 +21,20 @@ useEffect(()=>{
     setUsers(user)
     }
     console.log(user)
+    setOk(true)
 },[])
+useEffect(()=>{
+if(ok){
+    localStorage.setItem("users", JSON.stringify(users))
+}
+},[users])
 
 const handleclick=()=>{
     setOpen(true)
 }
 const handledelete=async (i)=>{
 var u=users.filter((h,index)=>!(index===i))
- setUsers(u,()=>{
-    localStorage.setItem("users", JSON.stringify(users))
- })
-
+ setUsers(u)
 
 }
     return(
