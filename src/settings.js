@@ -3,6 +3,7 @@ import {useState} from 'react'
 import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
 export const Settings=()=>{
 const[open,setOpen]=useState(false)
+const[values,setValues]=useState()
 const handleclick=()=>{
     setOpen(true)
 }
