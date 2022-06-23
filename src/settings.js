@@ -16,6 +16,10 @@ const[users,setUsers]=useState([])
 const handleclick=()=>{
     setOpen(true)
 }
+const handledelete=(i)=>{
+var u=users.filter((h,index)=>!(index===i))
+setUsers(u)
+}
     return(
         <>
         <div className="settings">
@@ -47,7 +51,7 @@ Role
        {index+1} 
     </td>
     <td>
-       {u.email} 
+       {u.name} 
     </td>
     <td>
         {Math.floor(Math.random()*10)} day ago
@@ -55,8 +59,8 @@ Role
     <td>
         {u.role}
     </td>
-    <td>
-    <DeleteRoundedIcon/>
+    <td style={{backgroundColor:'#57CA85',width:'1.4vw',boxSizing:'border-box',padding:'0.85vh 1.4vw',borderRadius:'50%',display:'flex',justifyContent:'center'}}>
+    <DeleteRoundedIcon style={{color:'#ffffff'}} onClick={()=>handledelete(index)}/>
     </td>
 </tr>
 </>)}

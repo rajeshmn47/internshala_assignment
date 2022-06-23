@@ -49,7 +49,7 @@ setOpen(!open)
 <input type='text' className='forminput' name='email'  value={values.email}
                         onChange={handleInputChange}/>
 <h5>Name of the user</h5>
-<input type='text' className='forminput' name='user'  value={values.name}
+<input type='text' className='forminput' name='name'  value={values.name}
                         onChange={handleInputChange}/>
 <h5>Role</h5>
 <input type='text' className='forminput' name='role'  value={values.role}
