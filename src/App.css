@@ -167,5 +167,6 @@ table,th,td{
 }
 th,td{
   height: 7vh;
-  
+  font-weight: 600;
+  text-transform: capitalize;
 }
