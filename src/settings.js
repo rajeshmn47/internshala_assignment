@@ -1,12 +1,16 @@
 import Popup from './popup'
 import {useState} from 'react'
+import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
 export const Settings=()=>{
 const[open,setOpen]=useState(false)
+const handleclick=()=>{
+    setOpen(true)
+}
     return(
         <>
         <div className="settings">
 <div>
-    <button className="adduser">add user</button>
+    <button className="adduser" onClick={()=>handleclick()}>add user</button>
 </div>
 <div className="tablecontainer">
     <table className="table">
@@ -48,6 +52,7 @@ Role
     </table>
 </div>
         </div>
+        <Popup open={open} setOpen={setOpen}/>
         </>
     )
 }
