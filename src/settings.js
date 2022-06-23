@@ -63,7 +63,7 @@ setNotification(true)
           }
           sx={{ mb: 2 }}
         >
-          Successfully deleted!
+          {message}
         </Alert>
         </Collapse>
         <div className="settings">
