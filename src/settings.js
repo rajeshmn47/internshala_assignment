@@ -35,6 +35,14 @@ if(ok){
     localStorage.setItem("users", JSON.stringify(users))
 }
 },[users])
+useEffect=(()=>{
+if(notification){
+    setTimeout(() => {
+        setNotification(false)
+    }, 2000);
+}
+},[notification])
+
 
 const handleclick=()=>{
     setOpen(true)
