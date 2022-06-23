@@ -13,7 +13,6 @@ const initialFValues = {
 }
 const[values,setValues]=useState(initialFValues)
 const[users,setUsers]=useState([])
-localStorage.setItem("users", JSON.stringify(users));
 useEffect(()=>{
     const user=localStorage.getItem("users")
     ? JSON.parse(localStorage.getItem("users")):false
@@ -21,7 +20,6 @@ useEffect(()=>{
     setUsers(user)
     }
     console.log(user)
- 
 },[])
 
 const handleclick=()=>{
@@ -29,8 +27,10 @@ const handleclick=()=>{
 }
 const handledelete=async (i)=>{
 var u=users.filter((h,index)=>!(index===i))
- setUsers(u)
- localStorage.setItem("users", JSON.stringify(users))
+ setUsers(u,()=>{
+    localStorage.setItem("users", JSON.stringify(users))
+ })
+
 
 }
     return(
