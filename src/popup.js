@@ -7,7 +7,7 @@ import { useScrollTrigger } from '@mui/material';
 // or
 
 
-export const Popup=({open,setOpen,values,setValues,users,setUsers})=>{
+export const Popup=({open,setOpen,values,setValues,users,setUsers,setMessage,setNotification})=>{
    
     const handleInputChange = e => {
         const { name, value } = e.target
@@ -26,6 +26,8 @@ setUsers([...users,values])
     console.log(users)
 localStorage.setItem("userszzz", JSON.stringify(users))
 setOpen(!open)
+setMessage('Successfully Added!')
+setNotification(true)
 }
     return(
         <>

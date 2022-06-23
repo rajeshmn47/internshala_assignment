@@ -2,10 +2,17 @@ import Popup from './popup'
 import {useState,useEffect} from 'react'
 import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import Alert from '@mui/material/Alert';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close'
 
 export const Settings=()=>{
 const[open,setOpen]=useState(false)
 const[ok,setOk]=useState(false)
+const[notification,setNotification]=useState(false)
+const[message,setMessage]=useState()
 const initialFValues=({
     id: 0,
     name: '',
@@ -35,10 +42,30 @@ const handleclick=()=>{
 const handledelete=async (i)=>{
 var u=users.filter((h,index)=>!(index===i))
  setUsers(u)
-
+ setMessage('Successfully Deleted!')
+setNotification(true)
 }
     return(
         <>
+<Collapse in={notification}>
+        <Alert open={notification}
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setNotification(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          sx={{ mb: 2 }}
+        >
+          Successfully deleted!
+        </Alert>
+        </Collapse>
         <div className="settings">
      
 <div>
@@ -87,7 +114,10 @@ Role
     </table>
 </div>
         </div>
-        <Popup open={open} setOpen={setOpen} values={values} setValues={setValues} users={users} setUsers={setUsers}/>
+
+        <Popup open={open} setOpen={setOpen} values={values} setValues={setValues} 
+        users={users} setUsers={setUsers} setNotification={setNotification} setMessage={setMessage}/>
+        
         </>
     )
 }
