@@ -35,7 +35,7 @@ if(ok){
     localStorage.setItem("users", JSON.stringify(users))
 }
 },[users])
-useEffect=(()=>{
+useEffect(()=>{
 if(notification){
     setTimeout(() => {
         setNotification(false)
