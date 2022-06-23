@@ -1,6 +1,8 @@
 import Popup from './popup'
 import {useState} from 'react'
 import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+
 export const Settings=()=>{
 const[open,setOpen]=useState(false)
 const initialFValues = {
@@ -48,13 +50,13 @@ Role
        {u.email} 
     </td>
     <td>
-        {u.name}
+        {Math.floor(Math.random()*10)} day ago
     </td>
     <td>
         {u.role}
     </td>
     <td>
-    
+    <DeleteRoundedIcon/>
     </td>
 </tr>
 </>)}
