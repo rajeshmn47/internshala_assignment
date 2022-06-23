@@ -1,5 +1,5 @@
 import Popup from './popup'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 
@@ -13,6 +13,17 @@ const initialFValues = {
 }
 const[values,setValues]=useState(initialFValues)
 const[users,setUsers]=useState([])
+
+useEffect(()=>{
+    const user=localStorage.getItem("users")
+    ? JSON.parse(localStorage.getItem("users")):false
+    if(user){
+    setUsers(user)
+    }
+},[])
+useEffect(()=>{
+    localStorage.setItem("users", JSON.stringify(users));
+},[users])
 const handleclick=()=>{
     setOpen(true)
 }
