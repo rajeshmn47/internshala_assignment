@@ -59,8 +59,10 @@ Role
     <td>
         {u.role}
     </td>
-    <td style={{backgroundColor:'#57CA85',width:'1.4vw',boxSizing:'border-box',padding:'0.85vh 1.4vw',borderRadius:'50%',display:'flex',justifyContent:'center'}}>
-    <DeleteRoundedIcon style={{color:'#ffffff'}} onClick={()=>handledelete(index)}/>
+    <td style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+        <div style={{backgroundColor:'#57CA85',width:'3vw',height:'6vh',color:'#ffffff',borderRadius:'50%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+    <DeleteRoundedIcon  style={{color:'#ffffff',width:'1.4vw',boxSizing:'border-box'}} onClick={()=>handledelete(index)}/>
+    </div>
     </td>
 </tr>
 </>)}
