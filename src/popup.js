@@ -3,10 +3,11 @@ import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import {useState} from 'react'
+import { useScrollTrigger } from '@mui/material';
 // or
 
 
-export const Popup=({open,setOpen,values,setValues})=>{
+export const Popup=({open,setOpen,values,setValues,users,setUsers})=>{
    
     const handleInputChange = e => {
         const { name, value } = e.target
@@ -14,12 +15,15 @@ export const Popup=({open,setOpen,values,setValues})=>{
             ...values,
             [name]: value
         })
+        console.log('rajesh')
     }
     const handleClose = () => {
         setOpen(!open)
       };
 const handlesubmit=(e)=>{
 e.preventDefault()
+setUsers([...users,values])
+setOpen(!open)
 }
     return(
         <>
