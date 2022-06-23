@@ -13,27 +13,30 @@ const initialFValues = {
 }
 const[values,setValues]=useState(initialFValues)
 const[users,setUsers]=useState([])
-
+localStorage.setItem("users", JSON.stringify(users));
 useEffect(()=>{
     const user=localStorage.getItem("users")
     ? JSON.parse(localStorage.getItem("users")):false
     if(user){
     setUsers(user)
     }
+    console.log(user)
+ 
 },[])
-useEffect(()=>{
-    localStorage.setItem("users", JSON.stringify(users));
-},[users])
+
 const handleclick=()=>{
     setOpen(true)
 }
-const handledelete=(i)=>{
+const handledelete=async (i)=>{
 var u=users.filter((h,index)=>!(index===i))
-setUsers(u)
+ setUsers(u)
+ localStorage.setItem("users", JSON.stringify(users))
+
 }
     return(
         <>
         <div className="settings">
+     
 <div>
     <button className="adduser" onClick={()=>handleclick()}>add user</button>
 </div>

@@ -23,6 +23,7 @@ export const Popup=({open,setOpen,values,setValues,users,setUsers})=>{
 const handlesubmit=(e)=>{
 e.preventDefault()
 setUsers([...users,values])
+localStorage.setItem("users", JSON.stringify(users))
 setOpen(!open)
 }
     return(
